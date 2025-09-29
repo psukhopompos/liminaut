@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liminaut - Find What's Holding You Back</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111111;
+            --text-color: #EAEAEA;
+            --accent-color: #4FD1C5;
+            --secondary-color: #2D3748;
+            --section-spacing: 5rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: var(--section-spacing) 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 3rem;
+            color: #B0B0B0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.125rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .step-description {
+            color: #B0B0B0;
+        }
+        
+        /* Core Principles Section */
+        .principles {
+            background-color: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .principle {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .principle-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+        
+        .principle-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        
+        .final-cta .section-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .final-cta p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            color: #B0B0B0;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+            font-size: 0.875rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.125rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .steps-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .step {
+                max-width: 100%;
+            }
+            
+            .principles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .cta-button {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find What's Holding You Back.</h1>
+            <p>A private, AI-guided conversation to map your emotional blockages.</p>
+            <a href="https://wa.me/551151974996" class="cta-button">Start on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-icon">💬</div>
+                    <h3 class="step-title">Chat</h3>
+                    <p class="step-description">Start a private conversation on WhatsApp.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🧭</div>
+                    <h3 class="step-title">Explore</h3>
+                    <p class="step-description">The AI asks structured questions to help you explore where you feel stuck.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">🗺️</div>
+                    <h3 class="step-title">Map</h3>
+                    <p class="step-description">As you talk, a map of your emotional patterns emerges, giving you clarity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Principles Section -->
+    <section class="principles">
+        <div class="container">
+            <h2 class="section-title">Our Approach</h2>
+            <div class="principles-grid">
+                <div class="principle">
+                    <div class="principle-icon">🔒</div>
+                    <h3 class="principle-title">100% Private</h3>
+                    <p>Your conversation is confidential.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">🤖</div>
+                    <h3 class="principle-title">AI-Guided</h3>
+                    <p>A structured process, not just a chatbot.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">💎</div>
+                    <h3 class="principle-title">No Jargon</h3>
+                    <p>Simple questions, clear insights.</p>
+                </div>
+                <div class="principle">
+                    <div class="principle-icon">🔍</div>
+                    <h3 class="principle-title">Self-Discovery</h3>
+                    <p>This is a tool for you, by you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="section-title">Ready for Clarity?</h2>
+            <p>Your map is waiting. The conversation takes about 15-20 minutes.</p>
+            <a href="https://wa.me/551151974996" class="cta-button">Start on WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Liminaut Emotional Blockage Profiling</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle WhatsApp link
+        document.addEventListener('DOMContentLoaded', function() {
+            const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+            
+            whatsappLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Optional: Add analytics tracking here
+                    console.log('WhatsApp CTA clicked');
+                    // The link will naturally redirect to WhatsApp
+                });
+            });
+        });
+    </script>
+</body>
+</html>
